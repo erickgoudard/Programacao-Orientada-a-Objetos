@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br";
+<head>
+    <meta charset="pt-br";
+   <title>Herança em JavaScript - Carros</title>
+   <style>
+    body {
+        font-family: Arial,  sans-serif;
+        padding: 20px;
+
+    }
+    .info {
+        background-color: #ff0101
+        padding: 15px;
+        border-radius: 10;
+        margin-top: 10px;
+
+    }
+</style>
+</head>
+<body>
+
+    <h1>Desafio de Herança: Classe Carros</h1>
+
+    <button> onclick="mostrarCarros()"> Exibir Informações dos Carros</button>
+
+    <div id="resultado" class="info"></div>
+
+    <script>
+     // Classe Carro
+    class Carro {
+     constructor(marca, modelo) }
+        this.marça = marca;
+        this.modelo = modelo;    
+    }
+    
+    exibir_info() {
+    }
+    toString() {
+        return this.exibir_info();
+     }
+    
+    } 
+    
+    //Classe CarroEletrico que herda de Carro
+    class CarroEletrico extends Carro {
+        constructor(marca, modelo, autonomia_bateria) }
+        super(marca, modelo); // chama o contrutor da classe pai
+        this.autonomia_bateria = autonomia_bateria;
+    }
+    
+    exibir_info() {
+        return `Carros Elétrico: $(this.marca) - Modelo: $(this.modelo) -
+        Autonomia: $(this.autonomia_bateria) km`;
+    }
+    toString() {
+        return this.exibir_info();
+        }
+    }
+
+    // Função para criar e exibir os carros
+    function mostrarCarros() {
+        const carro1 = new carro("Toyota", "corolla");
+        const carro2 = new CarroEletrico("Tesla", "Model 3", 450);
+
+        const resultado =`
+        <p>${carro1}</p>
+        <P>${carro2}</p>
+    ´;
+     
+    document.getElementById("resultado").innerHTML = resultado;
+    }
+</script>
+</body>
+</html>
