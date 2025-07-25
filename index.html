@@ -1,75 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-br";
+<html lang="pt-br">
 <head>
-    <meta charset="pt-br";
-   <title>Herança em JavaScript - Carros</title>
-   <style>
-    body {
-        font-family: Arial,  sans-serif;
-        padding: 20px;
-
-    }
-    .info {
-        background-color: #ff0101
-        padding: 15px;
-        border-radius: 10;
-        margin-top: 10px;
-
-    }
-</style>
+    <meta charset="UTF-8">
+    <title>Herança em JavaScript - Carros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .info {
+            background-color: #04d5f0; /* Cor de fundo para a seção de informações */
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
     <h1>Desafio de Herança: Classe Carros</h1>
 
-    <button> onclick="mostrarCarros()"> Exibir Informações dos Carros</button>
+    <button onclick="mostrarCarros()">Exibir Informações dos Carros</button>
 
     <div id="resultado" class="info"></div>
 
     <script>
-     // Classe Carro
-    class Carro {
-     constructor(marca, modelo) }
-        this.marça = marca;
-        this.modelo = modelo;    
-    }
-    
-    exibir_info() {
-    }
-    toString() {
-        return this.exibir_info();
-     }
-    
-    } 
-    
-    //Classe CarroEletrico que herda de Carro
-    class CarroEletrico extends Carro {
-        constructor(marca, modelo, autonomia_bateria) }
-        super(marca, modelo); // chama o contrutor da classe pai
-        this.autonomia_bateria = autonomia_bateria;
-    }
-    
-    exibir_info() {
-        return `Carros Elétrico: $(this.marca) - Modelo: $(this.modelo) -
-        Autonomia: $(this.autonomia_bateria) km`;
-    }
-    toString() {
-        return this.exibir_info();
+        // Classe Carro
+        class Carro {
+            constructor(marca, modelo) {
+                this.marca = marca; // Atribui a marca do carro
+                this.modelo = modelo; // Atribui o modelo do carro
+            }
+            
+            exibir_info() {
+                return `Carro: ${this.marca} - Modelo: ${this.modelo}`; // Retorna informações do carro
+            }
+            
+            toString() {
+                return this.exibir_info(); // Retorna a representação em string do carro
+            } 
+        } 
+        
+        // Classe CarroEletrico que herda de Carro
+        class CarroEletrico extends Carro {
+            constructor(marca, modelo, autonomia_bateria) {
+                super(marca, modelo); // Chama o construtor da classe pai
+                this.autonomia_bateria = autonomia_bateria; // Atribui a autonomia da bateria
+            }
+            
+            exibir_info() {
+                return `Carro Elétrico: ${this.marca} - Modelo: ${this.modelo} - Autonomia: ${this.autonomia_bateria} km`; // Retorna informações do carro elétrico
+            }
+            
+            toString() {
+                return this.exibir_info(); // Retorna a representação em string do carro elétrico
+            }
         }
-    }
 
-    // Função para criar e exibir os carros
-    function mostrarCarros() {
-        const carro1 = new carro("Toyota", "corolla");
-        const carro2 = new CarroEletrico("Tesla", "Model 3", 450);
+        // Função para criar e exibir os carros
+        function mostrarCarros() {
+            const carro1 = new Carro("Toyota", "Corolla"); // Cria um carro comum
+            const carro2 = new CarroEletrico("Tesla", "Model 3", 450); // Cria um carro elétrico
 
-        const resultado =`
-        <p>${carro1}</p>
-        <P>${carro2}</p>
-    ´;
-     
-    document.getElementById("resultado").innerHTML = resultado;
-    }
-</script>
+            const resultado = `
+                <p>${carro1}</p>
+                <p>${carro2}</p>
+            `;
+            
+            document.getElementById("resultado").innerHTML = resultado; // Exibe as informações dos carros
+        }
+    </script>
 </body>
 </html>
